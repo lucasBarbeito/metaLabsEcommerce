@@ -1,0 +1,21 @@
+<article>
+  <% if notice %>
+    <aside id="notice"><%= notice %></aside>
+  <% end %>
+  <h2>Tu Carrito</h2>
+  <table>
+    <% @cart.cart_products.each do |cart_product| %>
+      <tr>
+        <td class="quantity"><%= cart_product.quantity %> x </td>
+        <td><%= cart_product.product.name %></td>
+        <td class="price"><%= number_to_currency(cart_product.total_price) %></td>
+      </tr>
+    <% end %>
+      <th>Total:</th>
+      <th class="price"><%= number_to_currency(@cart.total_price) %></th>
+  </table>
+  <%= button_to 'Vaciar Carrito', @cart,
+                method: :delete,
+                data: { confirm: 'Seguro de que queres vaciar el carrito?' } %>
+
+</article>

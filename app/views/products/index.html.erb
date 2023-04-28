@@ -7,8 +7,8 @@
       <strong>Price:</strong> <%= number_to_currency(product.price) %><br>
       <strong>Stock:</strong> <%= product.stock %>
       <br>
-      <%= link_to "Ver Producto", product %>
-
+      <%= button_to "Ver Producto", product_path(product), method: :get %>
+      <%= button_to "Añadir al Carrito" ,  carts_path(cart: { product_id: product }) %>
     </li>
   <% end %>
 </ul>

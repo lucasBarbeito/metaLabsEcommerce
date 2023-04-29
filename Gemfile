@@ -44,6 +44,8 @@ gem "bootsnap", require: false
 
 gem 'dotenv-rails'
 gem 'devise'
+gem 'ruby-debug-ide'
+
 
 
 # Use Sass to process CSS

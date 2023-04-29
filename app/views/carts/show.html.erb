@@ -1,0 +1,51 @@
+<div>
+  <h1>Tu Carrito #<%= @cart.id %></h1>
+
+  <% if @cart.cart_products.count > 0 %>
+    <div>
+      <table class="cart-items">
+        <thead>
+        <tr>
+          <th>Name</th>
+          <th>Quantity</th>
+          <th>Price</th>
+          <th>Total</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @cart.cart_products.each do |cart_product| %>
+          <tr>
+            <td><%= cart_product.product.name %></td>
+            <td><%= cart_product.quantity %></td>
+            <td>$<%= cart_product.product.price %></td>
+            <td>$<%= cart_product.total %></td>
+            <td>
+              <table class="button-group">
+                <tr>
+                  <td>
+                    <%= form_with(url: carts_add_path) do |f| %>
+                      <%= f.hidden_field :id, value: cart_product.product.id %>
+                      <%= f.number_field :quantity, value: cart_product.quantity, min: 0, max: cart_product.product.stock %>
+                      <%= f.submit "Agregar Al carrito" %>
+                    <% end %>
+                  </td>
+                  <td>
+                    <%= form_with(url: carts_remove_path) do |f| %>
+                      <%= f.hidden_field :id, value: cart_product.id %>
+                      <%= f.submit "Eliminar Producto del Carrito" %>
+                    <% end %>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+
+      <p class="total">Total: <%= @cart.total %></p>
+    </div>
+  <% else %>
+    <p>Tu carrito está vacío</p>
+  <% end %>
+</div>

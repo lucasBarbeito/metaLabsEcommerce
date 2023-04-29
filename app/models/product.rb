@@ -1,8 +1,17 @@
 class Product < ApplicationRecord
+  has_many :cart_products
+  after_commit :in_stock
 
   scope :in_stock, -> {
-    products_in_stock = where.not(stock: nil).select { |product| 0 < product.stock }
-    where(id: products_in_stock.pluck(:id))
+    where('stock IS NULL OR stock >= ?', 0).order(id: :asc)
   }
+
+  def reduce_stock(amount)
+    update_column(:stock, stock - amount)
+  end
+
+  def increase_stock(amount)
+    update_column(:stock, stock + amount)
+  end
 
 end

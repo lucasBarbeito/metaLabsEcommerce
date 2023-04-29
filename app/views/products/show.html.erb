@@ -2,4 +2,9 @@
 <p>Description: <%= @product.description %></p>
 <p>Price: $<%= @product.price %></p>
 <p>Stock: <%= @product.stock %></p> <br>
+<%= form_with(url: carts_add_path) do |f| %>
+  <%= f.hidden_field :id, value: @product.id %>
+  <%= f.number_field :quantity, value: 0, min: 1, max: @product.stock %>
+  <%= f.submit "Agregar al Carrito" %>
+  <% end %>
 <%= link_to "Volver a todos los productos", products_path %>

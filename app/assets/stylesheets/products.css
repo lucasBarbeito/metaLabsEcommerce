@@ -1,0 +1,10 @@
+.container {
+    margin-top: 20px;
+    font-family: Montserrat, sans-serif;
+}
+.text-center {
+    text-align: center;
+}
+.flow-offset-1 > .col-xs-6 {
+    margin-bottom: 20px;
+}

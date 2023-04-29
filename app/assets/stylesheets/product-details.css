@@ -1,0 +1,31 @@
+.product-details {
+  color: #ffffff;
+  font-family: Montserrat, sans-serif;
+}
+
+.product-details .product-name {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.product-details .product-description {
+  margin-bottom: 10px;
+}
+
+.product-details .product-price,
+.product-details .product-stock {
+  font-weight: bold;
+}
+
+.product-details .button-container {
+  margin-top: 15px;
+  display: flex;
+}
+
+.product-details .button-container .btn {
+  margin-right: 15px;
+}
+
+.product-details .quantity-field {
+  margin-right: 10px;
+}

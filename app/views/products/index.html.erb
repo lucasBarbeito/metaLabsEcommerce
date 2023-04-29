@@ -1,5 +1,3 @@
-<%= button_to("Salir", destroy_user_session_path, method: :delete)
-%><h1><%= current_user.email %></h1>
 <h1>Catalogo de Productos</h1>
 <ul>
   <% @products.each do |product| %>
@@ -10,7 +8,6 @@
       <strong>Stock:</strong> <%= product.stock %>
       <br>
       <%= link_to "Ver Producto", product %>
-
     </li>
   <% end %>
 </ul>

@@ -1,0 +1,17 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 85vh;
+    background-color: #020013;
+}
+
+.content {
+    text-align: center;
+    color: #ffffff;
+    font-family: Montserrat, sans-serif;
+}
+
+/*.button-container {*/
+/*    margin-top: 20px;*/
+/*}*/

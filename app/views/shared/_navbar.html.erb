@@ -20,7 +20,9 @@
           <p class="nav-link mb-0"><%= current_user.email %></p>
         </li>
         <li class="nav-item">
-          <%= link_to "Logout", destroy_user_session_path, class: "nav-link", method: :delete %>
+          <%= form_tag(destroy_user_session_path, method: :delete) do %>
+            <%= submit_tag "Logout", class: "nav-link"%>
+          <% end %>
         </li>
       <% else %>
         <li class="nav-item">

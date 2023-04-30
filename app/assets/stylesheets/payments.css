@@ -7,6 +7,7 @@
 .table th,
 .table td {
     border: none;
+    text-align: center;
     color: #ffffff;
     font-family: Montserrat, sans-serif;
 }
@@ -15,9 +16,18 @@
     color: #ffffff;
 }
 
-.btn-primary {
+.btn-primary .btn-success{
     color: #ffffff;
     font-family: Montserrat, sans-serif;
     /* Add any other button styles you may have */
 }
 
+.button-group {
+    display: inline-block;
+}
+
+.button-group a,
+.button-group form {
+    display: inline-block;
+    margin-right: 5px;
+}

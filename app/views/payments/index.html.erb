@@ -18,7 +18,12 @@
       <td><%= payment.total %></td>
       <td><%= payment.status %></td>
       <td>
-        <%= link_to 'Ver el Pago', payment_path(payment), class: 'btn btn-primary' %>
+        <div class="button-group">
+          <%= link_to 'Ver el Pago', payment_path(payment), class: 'btn btn-primary' %>
+          <% if payment.status == 'pending' %>
+            <%= button_to("Pagar", pay_payment_path(payment), method: :patch, class: "btn btn-success") %>
+          <% end %>
+        </div>
       </td>
     </tr>
   <% end %>

@@ -5,7 +5,11 @@ Rails.application.routes.draw do
   post 'carts/remove'
   post 'carts/checkout'
   resources :products, only: [:show, :index]
-  resources :payments, only: [:show, :index]
+  resources :payments, only: [:show, :index] do
+    member do
+      patch 'pay'
+    end
+  end
   devise_for :users
   root "main#home"
 end

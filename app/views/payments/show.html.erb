@@ -1,2 +1,34 @@
-<h1>Payments#show</h1>
-<p>Find me in app/views/payments/show.html.erb</p>
+<%= stylesheet_link_tag 'payment' %>
+<div>
+  <h1 class="payment-title">Pago #<%= @payment.id %></h1>
+  <div>
+    <table class="payment-items">
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Total</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @payment.cart.cart_products.each do |cart_product| %>
+        <tr>
+          <td><%= cart_product.product.name %></td>
+          <td><%= cart_product.quantity %></td>
+          <td>$<%= cart_product.product.price %></td>
+          <td>$<%= cart_product.total %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+    <div class="pay-container">
+      <p class="total">Total: <%= @payment.total %></p>
+      <% if @payment.status == 'pending' %>
+        <%= button_to "Pagar", pay_payment_path(@payment), method: :patch, class: "btn btn-success" %>
+      <% else %>
+        <h4 class="payment-completed-title">El Pago se concreto</h4>
+      <% end %>
+    </div>
+  </div>
+</div>

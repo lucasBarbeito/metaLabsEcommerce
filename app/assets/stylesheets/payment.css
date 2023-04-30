@@ -1,0 +1,53 @@
+.payment-title {
+    text-align: center;
+    color: #ffffff;
+    font-family: Montserrat, sans-serif;
+}
+
+.payment-items {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.payment-items th,
+.payment-items td {
+    padding: 8px;
+    text-align: center;
+    color: #ffffff;
+    border: none;
+}
+
+.payment-items th:last-child,
+.payment-items td:last-child {
+    text-align: center;
+}
+
+.pay-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.total {
+    text-align: center;
+    font-weight: bold;
+    color: #ffffff;
+    margin-right: 10px;
+}
+
+.pay-button {
+    padding: 5px 10px;
+    font-size: 14px;
+    vertical-align: middle;
+}
+.payment-completed-title {
+    text-align: center;
+    color: #1db353;
+    font-family: Montserrat, sans-serif;
+}
+
+
+
+

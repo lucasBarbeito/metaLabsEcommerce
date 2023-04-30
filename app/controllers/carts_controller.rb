@@ -32,6 +32,8 @@ class CartsController < ApplicationController
   def checkout
     @cart.mark_as_closed
     @payment = Payment.create(cart: @cart)
+
+    redirect_to payment_path(@payment)
   end
 
   private

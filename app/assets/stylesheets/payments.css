@@ -1,4 +1,3 @@
-/* payments.css */
 
 .table {
     border-collapse: collapse;
@@ -19,7 +18,6 @@
 .btn-primary .btn-success{
     color: #ffffff;
     font-family: Montserrat, sans-serif;
-    /* Add any other button styles you may have */
 }
 
 .button-group {

@@ -1,0 +1,26 @@
+<%= stylesheet_link_tag 'payments' %>
+<table class="table">
+  <thead>
+  <tr>
+    <th>Payment ID</th>
+    <th>User Email</th>
+    <th>Cart ID</th>
+    <th>Total</th>
+    <th>Status</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @payments.each do |payment| %>
+    <tr>
+      <td><%= payment.id %></td>
+      <td><%= payment.user.email %></td>
+      <td><%= payment.cart.id %></td>
+      <td><%= payment.total %></td>
+      <td><%= payment.status %></td>
+      <td>
+        <%= link_to 'Ver el Pago', payment_path(payment), class: 'btn btn-primary' %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

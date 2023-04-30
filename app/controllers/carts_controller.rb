@@ -29,6 +29,11 @@ class CartsController < ApplicationController
     redirect_to carts_path
   end
 
+  def checkout
+    @cart.mark_as_closed
+    @payment = Payment.create(cart: @cart)
+  end
+
   private
 
   def initialize_cart
@@ -42,12 +47,4 @@ class CartsController < ApplicationController
 
     session[:cart_id] = @cart.id
   end
-
-  # def initialize_cart
-  #   @cart = Cart.find_or_create_by(id: session[:cart_id]) do |cart|
-  #     cart.user = current_user
-  #   end
-  #
-  #   session[:cart_id] = @cart.id
-  # end
 end

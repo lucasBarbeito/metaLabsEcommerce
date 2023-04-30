@@ -42,8 +42,12 @@
         </tbody>
       </table>
       <div class="checkout-container">
-        <p class="total">Total: <%= @cart.total %></p>
-        <button class="btn btn-primary checkout-button" onclick="alert('Checkout')">Checkout</button>
+        <%= form_with(url: carts_checkout_path) do |f| %>
+          <p class="total">Total: <%= @cart.total %></p>
+          <%= button_tag(type: 'submit', class: 'btn btn-primary checkout-button') do %>
+            Checkout
+          <% end %>
+        <% end %>
       </div>
     </div>
   <% else %>

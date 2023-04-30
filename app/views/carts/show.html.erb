@@ -1,5 +1,6 @@
+<%= stylesheet_link_tag 'cart' %>
 <div>
-  <h1>Tu Carrito #<%= @cart.id %></h1>
+  <h1 class="cart-title">Tu Carrito #<%= @cart.id %></h1>
 
   <% if @cart.cart_products.count > 0 %>
     <div>
@@ -20,30 +21,30 @@
             <td>$<%= cart_product.product.price %></td>
             <td>$<%= cart_product.total %></td>
             <td>
-              <table class="button-group">
-                <tr>
-                  <td>
-                    <%= form_with(url: carts_add_path) do |f| %>
-                      <%= f.hidden_field :id, value: cart_product.product.id %>
-                      <%= f.number_field :quantity, value: cart_product.quantity, min: 0, max: cart_product.product.stock %>
-                      <%= f.submit "Agregar Al carrito" %>
-                    <% end %>
-                  </td>
-                  <td>
-                    <%= form_with(url: carts_remove_path) do |f| %>
-                      <%= f.hidden_field :id, value: cart_product.id %>
-                      <%= f.submit "Eliminar Producto del Carrito" %>
-                    <% end %>
-                  </td>
-                </tr>
-              </table>
+              <div class="button-container">
+                <%= form_with(url: carts_add_path) do |f| %>
+                  <%= f.hidden_field :id, value: cart_product.product.id %>
+                  <%= f.number_field :quantity, value: cart_product.quantity, min: 0, max: cart_product.product.stock %>
+                  <%= button_tag(type: 'submit', class: 'btn btn-primary') do %>
+                    Agregar al carrito
+                  <% end %>
+                <% end %>
+                <%= form_with(url: carts_remove_path) do |f| %>
+                  <%= f.hidden_field :id, value: cart_product.id %>
+                  <%= button_tag(type: 'submit', class: 'btn btn-danger') do %>
+                    Eliminar Producto del Carrito
+                  <% end %>
+                <% end %>
+              </div>
             </td>
           </tr>
         <% end %>
         </tbody>
       </table>
-
-      <p class="total">Total: <%= @cart.total %></p>
+      <div class="checkout-container">
+        <p class="total">Total: <%= @cart.total %></p>
+        <button class="btn btn-primary checkout-button" onclick="alert('Checkout')">Checkout</button>
+      </div>
     </div>
   <% else %>
     <p>Tu carrito está vacío</p>

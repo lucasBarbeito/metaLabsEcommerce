@@ -3,7 +3,7 @@ class Product < ApplicationRecord
   after_commit :in_stock
 
   scope :in_stock, -> {
-    where('stock IS NULL OR stock >= ?', 0).order(id: :asc)
+    where('stock IS NULL OR stock > ?', 0).order(id: :asc)
   }
 
   def reduce_stock(amount)

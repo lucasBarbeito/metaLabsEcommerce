@@ -1,0 +1,51 @@
+.cart-title {
+    text-align: center;
+    color: #ffffff;
+    font-family: Montserrat, sans-serif;
+}
+
+.cart-items {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.cart-items th,
+.cart-items td {
+    padding: 8px;
+    text-align: center;
+    color: #ffffff;
+    border: none;
+}
+
+.cart-items th:last-child,
+.cart-items td:last-child {
+    text-align: center;
+}
+
+.button-container {
+    display: flex;
+    gap: 15px;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.checkout-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    justify-content: center;
+}
+
+.total {
+    text-align: center;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 5px; /* Add a margin-bottom value to create space below the total */
+}
+
+.checkout-button {
+    padding: 5px 10px;
+    font-size: 14px;
+    vertical-align: middle; /* Add vertical alignment to align the button with the total */
+}

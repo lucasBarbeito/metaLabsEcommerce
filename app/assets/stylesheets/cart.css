@@ -49,3 +49,10 @@
     font-size: 14px;
     vertical-align: middle; /* Add vertical alignment to align the button with the total */
 }
+
+.empty-cart-text{
+    text-align: center;
+    font-weight: bold;
+    color: #ffffff;
+    margin-top: 50px;
+}

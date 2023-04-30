@@ -26,7 +26,7 @@ class CartsController < ApplicationController
     cart_product = CartProduct.find_by(id: params[:id])
     cart_product.product.increase_stock(cart_product.quantity)
     cart_product.destroy
-    redirect_to products_path
+    redirect_to carts_path
   end
 
   private
